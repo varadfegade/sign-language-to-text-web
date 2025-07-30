@@ -1,0 +1,10 @@
+{
+  "name": "sign-language-converter",
+  "version": "1.0.0",
+  "description": "Sign Language to Text Converter website with ASL learning module.",
+  "scripts": {
+    "start": "echo 'Static project - no build step'"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

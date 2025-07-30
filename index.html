@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL to Text Converter - Enhanced Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="learning.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤟 ASL to Text Converter</h1>
+            <p>Real-time American Sign Language recognition with enhanced gesture detection</p>
+            <p class="subtitle">Show your hand gestures to the camera and watch them convert to text!</p>
+        </header>
+
+        <main>
+            <section class="video-section">
+                <h3>📹 Camera Feed</h3>
+                <div class="video-container">
+                    <video id="inputVideo" autoplay muted playsinline></video>
+                    <canvas id="outputCanvas"></canvas>
+                </div>
+                <div class="controls">
+                    <button id="startButton" class="btn btn--primary">Start Camera</button>
+                    <button id="stopButton" class="btn btn--secondary">Stop Camera</button>
+                    <button id="toggleLandmarksBtn" class="btn btn--info">Hide Landmarks</button>
+                    <button id="learnButton" class="btn btn--warning">Learn Gestures</button>
+                </div>
+            </section>
+
+            <section class="output-section">
+                <h3>📝 Recognized Text</h3>
+                <textarea id="outputText" placeholder="Recognized letters will appear here..."></textarea>
+                <div class="text-controls">
+                    <button id="clearButton" class="btn btn--secondary">Clear Text</button>
+                    <button id="copyButton" class="btn btn--info">Copy Text</button>
+                    <button id="downloadButton" class="btn btn--success">Download</button>
+                </div>
+            </section>
+        </main>
+
+        <section class="status">
+            <div class="status-content">
+                <h3>📊 Status</h3>
+                <p id="statusText">Click "Start Camera" to begin</p>
+                <p id="confidenceLevel">Waiting for camera...</p>
+                <div class="features-info">
+                    <div class="feature">
+                        <span class="feature-icon">👀</span>
+                        <span>Hand Landmark Detection</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔤</span>
+                        <span>26 ASL Letters Supported</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Real-time Processing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Learning Modal -->
+    <div id="learningModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎓 Learn ASL Gestures</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Click on any letter below to learn how to sign it properly:</p>
+                <div id="gestureGrid" class="gesture-grid">
+                    <!-- Gesture items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gesture Detail Modal -->
+    <div id="gestureDetailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="gestureTitle">Gesture Details</h2>
+                <span class="close-detail">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="gesture-detail-content">
+                    <img id="gestureImage" class="gesture-image" alt="Gesture">
+                    <div class="gesture-info">
+                        <h3 id="gestureLetter">A</h3>
+                        <p id="gestureDescription">Description will appear here</p>
+                        <div class="gesture-tips">
+                            <h4>💡 Tips for Success:</h4>
+                            <ul id="gestureTips">
+                                <!-- Tips will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 ASL to Text Converter - Enhanced Edition</p>
+            <p>Powered by MediaPipe Hands & Advanced Gesture Recognition</p>
+        </div>
+    </footer>
+
+    <script src="learning.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
